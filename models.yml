@@ -3,13 +3,18 @@ Arcee AI Trinity Large 400B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/arcee-ai-trinity-large-400b.webp"
   date: '2026-01-27'
   summary: Arcee's flagship blends several efficiency tricks into a DeepSeek-like coarse MoE design.
-  scale: 400B total, 13B active
+  scale: 400B total, 13B active (3.3% active)
   context_tokens: '512,000'
   license_name: Apache License 2.0
   license_url: https://huggingface.co/arcee-ai/Trinity-Large-Base/blob/main/README.md
   decoder_type: Sparse MoE
   attention: GQA with gated attention and 3:1 sliding-window/global attention
+  layer_mix: '45 sliding-window + 15 global'
+  kv_cache_per_token_bf16: '240 KiB'
   highlight: Combines QK-Norm, RoPE+NoPE, sandwich norm, and a coarse-grained MoE.
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
   config:
     repo: arcee-ai/Trinity-Large-Base
     label: config.json
@@ -20,13 +25,18 @@ DeepSeek R1:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/deepseek-v3-r1-671-billion.webp"
   date: '2025-01-20'
   summary: Reasoning-tuned DeepSeek model built on the V3 architecture rather than a new base design.
-  scale: 671B total, 37B active
+  scale: 671B total, 37B active (5.5% active)
   context_tokens: '128,000'
   license_name: MIT License
   license_url: https://huggingface.co/deepseek-ai/DeepSeek-R1/blob/main/LICENSE
   decoder_type: Sparse MoE
   attention: MLA
+  layer_mix: '61 MLA'
+  kv_cache_per_token_bf16: '68.6 KiB'
   highlight: Architecture matches DeepSeek V3; the main change is the reasoning-oriented training recipe.
+  aa_intelligence_index: '18.8'
+  aai_profile: 'General 33.1 · Scientific 22.5 · Coding 15.9 · Agents 3.8'
+  aa_url: https://artificialanalysis.ai/models/deepseek-r1-0120
   config:
     repo: deepseek-ai/DeepSeek-R1
     label: config.json
@@ -37,13 +47,18 @@ DeepSeek V3:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/deepseek-v3-r1-671-billion.webp"
   date: '2024-12-26'
   summary: DeepSeek's flagship template kicked off the recent wave of large open MoE models.
-  scale: 671B total, 37B active
+  scale: 671B total, 37B active (5.5% active)
   context_tokens: '128,000'
   license_name: DeepSeek License Agreement v1.0
   license_url: https://huggingface.co/deepseek-ai/DeepSeek-V3/blame/main/LICENSE-MODEL
   decoder_type: Sparse MoE
   attention: MLA
+  layer_mix: '61 MLA'
+  kv_cache_per_token_bf16: '68.6 KiB'
   highlight: Uses a dense prefix plus a shared expert to keep a very large model practical at inference.
+  aa_intelligence_index: '16.5'
+  aai_profile: 'General 24.9 · Scientific 15.7 · Coding 16.4 · Agents 8.8'
+  aa_url: https://artificialanalysis.ai/models/deepseek-v3
   config:
     repo: deepseek-ai/DeepSeek-V3
     label: config.json
@@ -54,13 +69,18 @@ DeepSeek V3.2:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/deepseek-v3-2-671b.webp"
   date: '2025-12-01'
   summary: DeepSeek's successor keeps the V3 template but adds sparse attention to cut long-context costs.
-  scale: 671B total, 37B active
+  scale: 671B total, 37B active (5.5% active)
   context_tokens: '128,000'
   license_name: MIT License
   license_url: https://huggingface.co/deepseek-ai/DeepSeek-V3.2/blob/main/LICENSE
   decoder_type: Sparse MoE
   attention: MLA with DeepSeek Sparse Attention
+  layer_mix: '61 MLA'
+  kv_cache_per_token_bf16: '68.6 KiB'
   highlight: An evolutionary update focused on efficiency rather than a new base layout.
+  aa_intelligence_index: '32.1'
+  aai_profile: 'General 29.7 · Scientific 24.2 · Coding 34.6 · Agents 39.8'
+  aa_url: https://artificialanalysis.ai/models/deepseek-v3-2
   config:
     repo: deepseek-ai/DeepSeek-V3.2
     label: config.json
@@ -71,13 +91,18 @@ GLM-4.5 355B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/glm-4-5-355b.webp"
   date: '2025-07-28'
   summary: Agent-oriented instruction/reasoning hybrid that borrows DeepSeek's dense-prefix MoE layout.
-  scale: 355B total, 32B active
+  scale: 355B total, 32B active (9% active)
   context_tokens: '128,000'
   license_name: MIT License
   license_url: https://huggingface.co/zai-org/GLM-4.5/blob/main/README.md
   decoder_type: Sparse MoE
   attention: GQA with QK-Norm
+  layer_mix: '92 GQA'
+  kv_cache_per_token_bf16: '368 KiB'
   highlight: Starts with three dense layers before MoE routing and keeps a shared expert.
+  aa_intelligence_index: '26.4'
+  aai_profile: 'General 37.5 · Scientific 25.6 · Coding 26.3 · Agents 16.2'
+  aa_url: https://artificialanalysis.ai/models/glm-4.5
   config:
     repo: zai-org/GLM-4.5
     label: config.json
@@ -88,13 +113,18 @@ GLM-4.7 355B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/glm-4-7-355b.webp"
   date: '2025-12-22'
   summary: Immediate GLM predecessor that stays closer to the older GLM-4.5 style before the MLA shift.
-  scale: 355B total, 32B active
+  scale: 355B total, 32B active (9% active)
   context_tokens: '202,752'
   license_name: MIT License
   license_url: https://huggingface.co/zai-org/GLM-4.7/blob/main/README.md
   decoder_type: Sparse MoE
   attention: GQA with QK-Norm
+  layer_mix: '92 GQA'
+  kv_cache_per_token_bf16: '368 KiB'
   highlight: Serves as the pre-MLA, pre-sparse-attention baseline with the same 32B active path as GLM-4.5.
+  aa_intelligence_index: '34.2'
+  aai_profile: 'General 30.6 · Scientific 19.7 · Coding 32.0 · Agents 54.3'
+  aa_url: https://artificialanalysis.ai/models/glm-4-7-non-reasoning
   config:
     repo: zai-org/GLM-4.7
     label: config.json
@@ -105,13 +135,18 @@ GLM-5 744B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/glm-5-744b.webp"
   date: '2026-02-11'
   summary: Huge GLM refresh that adopts both MLA and DeepSeek Sparse Attention for flagship-scale inference.
-  scale: 744B total, 40B active
+  scale: 744B total, 40B active (5.4% active)
   context_tokens: '202,752'
   license_name: MIT License
   license_url: https://huggingface.co/zai-org/GLM-5/blob/main/README.md
   decoder_type: Sparse MoE
   attention: MLA with DeepSeek Sparse Attention
+  layer_mix: '78 MLA'
+  kv_cache_per_token_bf16: '87.8 KiB'
   highlight: Bigger than GLM-4.7, with more experts and fewer layers.
+  aa_intelligence_index: '40.6'
+  aai_profile: 'General 42.8 · Scientific 20.2 · Coding 39.0 · Agents 60.3'
+  aa_url: https://artificialanalysis.ai/models/glm-5-non-reasoning
   config:
     repo: zai-org/GLM-5
     label: config.json
@@ -128,7 +163,12 @@ GPT-2 XL 1.5B:
   license_url: https://github.com/openai/gpt-2
   decoder_type: Dense
   attention: MHA with learned absolute positional embeddings
+  layer_mix: '48 MHA'
+  kv_cache_per_token_bf16: '300 KiB'
   highlight: Classic GPT-2 recipe with dropout, GELU, LayerNorm, and full multi-head attention.
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
   config:
     repo: openai-community/gpt2-xl
     label: config.json
@@ -139,13 +179,18 @@ GPT-OSS 120B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/gpt-oss-120b.webp"
   date: '2025-08-04'
   summary: Larger gpt-oss variant keeps the same alternating-attention recipe as the 20B model.
-  scale: 120B parameters
+  scale: 117B total, 5.1B active (4.4% active)
   context_tokens: '128,000'
   license_name: Apache License 2.0
   license_url: https://huggingface.co/openai/gpt-oss-120b/blob/main/LICENSE
   decoder_type: Sparse MoE
   attention: GQA with alternating sliding-window and global layers
+  layer_mix: '18 sliding-window + 18 global'
+  kv_cache_per_token_bf16: '72 KiB'
   highlight: Shared architectural template scaled up for OpenAI's flagship open-weight release.
+  aa_intelligence_index: '33.3'
+  aai_profile: 'General 37.5 · Scientific 29.1 · Coding 28.6 · Agents 37.9'
+  aa_url: https://artificialanalysis.ai/models/gpt-oss-120b
   config:
     repo: openai/gpt-oss-120b
     label: config.json
@@ -156,13 +201,18 @@ GPT-OSS 20B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/gpt-oss-20b.webp"
   date: '2025-08-04'
   summary: OpenAI's smaller open-weight MoE model favors width and alternating local/global attention.
-  scale: 20B total, 3.6B active
+  scale: 21B total, 3.6B active (17.1% active)
   context_tokens: '128,000'
   license_name: Apache License 2.0
   license_url: https://huggingface.co/openai/gpt-oss-20b/blob/main/LICENSE
   decoder_type: Sparse MoE
   attention: GQA with alternating sliding-window and global layers
+  layer_mix: '12 sliding-window + 12 global'
+  kv_cache_per_token_bf16: '48 KiB'
   highlight: Wider and shallower than Qwen3, with attention bias and sink mechanisms.
+  aa_intelligence_index: '24.5'
+  aai_profile: 'General 29.3 · Scientific 22.5 · Coding 18.5 · Agents 27.6'
+  aa_url: https://artificialanalysis.ai/models/gpt-oss-20b
   config:
     repo: openai/gpt-oss-20b
     label: config.json
@@ -175,11 +225,17 @@ Gemma 3 270M:
   summary: Tiny Gemma 3 variant that preserves the family's local-global attention recipe at a toy scale.
   scale: 270M parameters
   context_tokens: '128,000'
+  vocab_size: '262,144 (~262k)'
   license_name: Gemma Terms of Use + Gemma Prohibited Use Policy
   license_url: https://ai.google.dev/gemma/prohibited_use_policy
   decoder_type: Dense
   attention: Multi-query attention with QK-Norm and 5:1 sliding-window/global attention
-  highlight: Keeps the Gemma 3 stack shape while shrinking down to 4 attention heads and a single KV head.
+  layer_mix: '15 sliding-window + 3 global'
+  kv_cache_per_token_bf16: '18 KiB'
+  highlight: Keeps the Gemma 3 stack shape while shrinking down to 4 attention heads, a single KV head, and the same 262k vocabulary.
+  aa_intelligence_index: '7.7'
+  aai_profile: 'General 20.1 · Scientific 7.7 · Coding 0.0 · Agents 3.0'
+  aa_url: https://artificialanalysis.ai/models/gemma-3-270m
   config:
     repo: google/gemma-3-270m
     label: config.json
@@ -194,11 +250,17 @@ Gemma 3 27B:
   summary: Gemma's flagship text stack leans on local attention more aggressively than Gemma 2.
   scale: 27B parameters
   context_tokens: '128,000'
+  vocab_size: '262,144 (~262k)'
   license_name: Gemma Terms of Use + Gemma Prohibited Use Policy
   license_url: https://ai.google.dev/gemma/prohibited_use_policy
   decoder_type: Dense
   attention: GQA with QK-Norm and 5:1 sliding-window/global attention
-  highlight: Built around a 27B sweet spot with heavier local attention and a large multilingual vocabulary.
+  layer_mix: '52 sliding-window + 10 global'
+  kv_cache_per_token_bf16: '496 KiB'
+  highlight: Built around a 27B sweet spot with heavier local attention and a large 262k multilingual vocabulary.
+  aa_intelligence_index: '10.3'
+  aai_profile: 'General 15.1 · Scientific 13.0 · Coding 9.6 · Agents 3.5'
+  aa_url: https://artificialanalysis.ai/models/gemma-3-27b
   config:
     repo: google/gemma-3-27b-it
     label: config.json
@@ -207,6 +269,52 @@ Gemma 3 27B:
     url: https://arxiv.org/pdf/2503.19786
   from_scratch:
     url: https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/12_gemma3
+Gemma 4 26B-A4B:
+  image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/gemma-4-26b-a4b.webp"
+  date: '2026-04-02'
+  summary: Sparse Gemma 4 variant that keeps the local:global attention backbone while swapping dense FFNs for MoE layers.
+  scale: 25.2B total, 3.8B active (15.1% active)
+  context_tokens: '256,000'
+  vocab_size: '262,144 (~262k)'
+  license_name: Apache License 2.0
+  license_url: https://ai.google.dev/gemma/docs/core/model_card_4
+  decoder_type: Sparse MoE
+  attention: GQA with QK-Norm, unified K/V on global layers, p-RoPE on global layers, and 5:1 sliding-window/global attention
+  layer_mix: '25 sliding-window + 5 global'
+  kv_cache_per_token_bf16: '210 KiB'
+  highlight: Uses 128 total experts with only 8 routed plus 1 shared expert active per token.
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
+  config:
+    repo: google/gemma-4-26B-A4B-it
+    label: config.json
+    url: https://huggingface.co/google/gemma-4-26B-A4B-it/blob/main/config.json
+  tech_report:
+    url: https://ai.google.dev/gemma/docs/core/model_card_4
+Gemma 4 31B:
+  image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/gemma-4-31b.webp"
+  date: '2026-04-02'
+  summary: Dense Gemma 4 scales the family to a 256K-context multimodal checkpoint without changing the core local-global recipe much.
+  scale: 30.7B parameters
+  context_tokens: '256,000'
+  vocab_size: '262,144 (~262k)'
+  license_name: Apache License 2.0
+  license_url: https://ai.google.dev/gemma/docs/core/model_card_4
+  decoder_type: Dense
+  attention: GQA with QK-Norm, unified K/V on global layers, p-RoPE on global layers, and 5:1 sliding-window/global attention
+  layer_mix: '50 sliding-window + 10 global'
+  kv_cache_per_token_bf16: '840 KiB'
+  highlight: Carries Gemma's unusual pre/post-norm stack into a larger 31B dense model with 256K context.
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
+  config:
+    repo: google/gemma-4-31B-it
+    label: config.json
+    url: https://huggingface.co/google/gemma-4-31B-it/blob/main/config.json
+  tech_report:
+    url: https://ai.google.dev/gemma/docs/core/model_card_4
 Grok 2.5 270B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/grok-2-5-270b.webp"
   date: '2025-08-22'
@@ -217,7 +325,12 @@ Grok 2.5 270B:
   license_url: https://huggingface.co/xai-org/grok-2/blob/main/README.md
   decoder_type: Sparse MoE
   attention: GQA
+  layer_mix: '64 GQA'
+  kv_cache_per_token_bf16: '256 KiB'
   highlight: Adds an always-on SwiGLU path that effectively behaves like a shared expert.
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
   config:
     repo: xai-org/grok-2
     label: config.json
@@ -226,13 +339,18 @@ Kimi K2:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/kimi-k2-1-trillion.webp"
   date: '2025-07-10'
   summary: Trillion-parameter Moonshot model that essentially scales the DeepSeek V3 recipe upward.
-  scale: 1T total, 32B active
+  scale: 1T total, 32B active (3.2% active)
   context_tokens: '128,000'
   license_name: Modified MIT License
   license_url: https://huggingface.co/moonshotai/Kimi-K2-Base/blame/main/LICENSE
   decoder_type: Sparse MoE
   attention: MLA
+  layer_mix: '61 MLA'
+  kv_cache_per_token_bf16: '68.6 KiB'
   highlight: More experts and fewer MLA heads than DeepSeek V3.
+  aa_intelligence_index: '26.3'
+  aai_profile: 'General 36.3 · Scientific 22.6 · Coding 22.1 · Agents 24.3'
+  aa_url: https://artificialanalysis.ai/models/kimi-k2
   config:
     repo: moonshotai/Kimi-K2-Base
     label: config.json
@@ -243,13 +361,18 @@ Kimi K2.5:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/kimi-k2-5.webp"
   date: '2026-01-27'
   summary: Native-multimodal Moonshot flagship that keeps the K2/DeepSeek-style MoE layout and pushes native context to 256k.
-  scale: 1T total, 32B active
+  scale: 1T total, 32B active (3.2% active)
   context_tokens: '256,000'
   license_name: Modified MIT License
   license_url: https://huggingface.co/moonshotai/Kimi-K2.5/blob/main/LICENSE
   decoder_type: Sparse MoE
   attention: MLA
+  layer_mix: '61 MLA'
+  kv_cache_per_token_bf16: '68.6 KiB'
   highlight: Keeps the 384-expert K2 backbone, but adds multimodal capabilities (not shown) and doubles the native context length.
+  aa_intelligence_index: '37.3'
+  aai_profile: 'General 44.4 · Scientific 26.0 · Coding 25.8 · Agents 52.8'
+  aa_url: https://artificialanalysis.ai/models/kimi-k2-5-non-reasoning
   config:
     repo: moonshotai/Kimi-K2.5
     label: config.json
@@ -260,13 +383,18 @@ Kimi Linear 48B-A3B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/kimi-linear-48b-a3b.webp"
   date: '2025-10-30'
   summary: Linear-attention hybrid that keeps a transformer backbone but replaces most full-attention layers.
-  scale: 48B total, 3B active
+  scale: 48B total, 3B active (6.3% active)
   context_tokens: '1,000,000'
   license_name: MIT License
   license_url: https://github.com/MoonshotAI/Kimi-Linear
   decoder_type: Sparse hybrid
   attention: 3:1 Kimi Delta Attention and MLA
+  layer_mix: '7 MLA + 20 Kimi Delta Attention'
+  kv_cache_per_token_bf16: '7.9 KiB'
   highlight: Uses NoPE in MLA layers and channel-wise gating for long-context efficiency.
+  aa_intelligence_index: '14.4'
+  aai_profile: 'General N/A · Scientific N/A · Coding 14.2 · Agents N/A'
+  aa_url: https://artificialanalysis.ai/models/kimi-linear-48b-a3b-instruct
   config:
     repo: moonshotai/Kimi-Linear-48B-A3B-Base
     label: config.json
@@ -277,13 +405,18 @@ Ling 2.5 1T:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/ling-2-5-1t.webp"
   date: '2026-02-15'
   summary: Trillion-parameter long-context model that swaps DeltaNet for Lightning Attention.
-  scale: 1T total, 63B active
+  scale: 1T total, 63B active (6.3% active)
   context_tokens: '256,000'
   license_name: MIT License
   license_url: https://huggingface.co/inclusionAI/Ling-2.5-1T/blob/main/README.md
   decoder_type: Sparse hybrid
   attention: Lightning Attention plus MLA
+  layer_mix: '10 MLA + 70 Lightning Attention'
+  kv_cache_per_token_bf16: '11.2 KiB'
   highlight: Uses a 7:1 linear-attention/MLA ratio and a much larger 63B active path.
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
   config:
     repo: inclusionAI/Ling-2.5-1T
     label: config.json
@@ -298,7 +431,12 @@ Llama 3.2 1B:
   license_url: https://huggingface.co/meta-llama/Llama-3.2-1B/blob/main/LICENSE.txt
   decoder_type: Dense
   attention: GQA
+  layer_mix: '16 GQA'
+  kv_cache_per_token_bf16: '32 KiB'
   highlight: Wider architecture with more heads than Qwen3 0.6B.
+  aa_intelligence_index: '6.3'
+  aai_profile: 'General 17.0 · Scientific 7.6 · Coding 0.6 · Agents 0.0'
+  aa_url: https://artificialanalysis.ai/models/llama-3-2-instruct-1b
   from_scratch:
     url: https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/07_gpt_to_llama
 Llama 3 8B:
@@ -311,7 +449,12 @@ Llama 3 8B:
   license_url: https://huggingface.co/meta-llama/Meta-Llama-3-8B/blob/main/LICENSE
   decoder_type: Dense
   attention: GQA with RoPE
+  layer_mix: '32 GQA'
+  kv_cache_per_token_bf16: '128 KiB'
   highlight: Pre-norm baseline; wider than OLMo 2 at a similar scale.
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
   config:
     repo: meta-llama/Meta-Llama-3-8B
     label: config.json
@@ -328,18 +471,28 @@ Llama 3.2 3B:
   license_url: https://huggingface.co/meta-llama/Llama-3.2-3B/blob/main/LICENSE.txt
   decoder_type: Dense
   attention: GQA
+  layer_mix: '28 GQA'
+  kv_cache_per_token_bf16: '112 KiB'
   highlight: Reference small-model Llama architecture with tied embeddings.
+  aa_intelligence_index: '9.7'
+  aai_profile: 'N/A'
+  aa_url: https://artificialanalysis.ai/models/llama-3-2-instruct-3b
 Llama 4 Maverick:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/llama-4-maverick-400b.webp"
   date: '2025-04-05'
   summary: Meta's large MoE follows the DeepSeek V3 playbook but with a more conventional attention stack.
-  scale: 400B total, 17B active
+  scale: 400B total, 17B active (4.3% active)
   context_tokens: '1,000,000'
   license_name: Llama 4 Community License Agreement
   license_url: https://huggingface.co/meta-llama/Llama-4-Maverick
   decoder_type: Sparse MoE
   attention: GQA
+  layer_mix: '36 chunked + 12 full GQA'
+  kv_cache_per_token_bf16: '192 KiB'
   highlight: Alternates dense and MoE blocks and uses fewer, larger experts than DeepSeek V3.
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
   config:
     repo: meta-llama/Llama-4-Maverick-17B-128E-Instruct
     label: config.json
@@ -350,13 +503,18 @@ MiniMax M2 230B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/minimax-m2-230b.webp"
   date: '2025-10-23'
   summary: MiniMax's flagship returns to full attention and looks like a leaner, sparser cousin of Qwen3.
-  scale: 230B total, 10B active
+  scale: 230B total, 10B active (4.3% active)
   context_tokens: '196,608'
   license_name: Modified MIT License
   license_url: https://huggingface.co/MiniMaxAI/MiniMax-M2/blob/main/README.md
   decoder_type: Sparse MoE
   attention: GQA with QK-Norm and partial RoPE
+  layer_mix: '62 GQA'
+  kv_cache_per_token_bf16: '248 KiB'
   highlight: Uses per-layer QK-Norm and much sparser MoE routing than Qwen3.
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
   config:
     repo: MiniMaxAI/MiniMax-M2
     label: config.json
@@ -365,13 +523,18 @@ MiniMax M2.5 230B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/minimax-m2-5-230b.webp"
   date: '2026-02-12'
   summary: Popular 230B coder that opts for a classic architecture instead of the newer hybrid-attention ideas.
-  scale: 230B total, 10B active
+  scale: 230B total, 10B active (4.3% active)
   context_tokens: '196,608'
   license_name: Modified MIT License
   license_url: https://huggingface.co/MiniMaxAI/MiniMax-M2.5/blob/main/README.md
   decoder_type: Sparse MoE
   attention: GQA with QK-Norm
+  layer_mix: '62 GQA'
+  kv_cache_per_token_bf16: '248 KiB'
   highlight: Deliberately avoids sliding-window or linear-attention hybrids while keeping a 10B active path.
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
   config:
     repo: MiniMaxAI/MiniMax-M2.5
     label: config.json
@@ -380,13 +543,18 @@ Mistral Large 3:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/mistral-3-large-673-billion.webp"
   date: '2025-12-02'
   summary: Mistral's new flagship effectively adopts the DeepSeek architecture and retunes the expert sizes.
-  scale: 673B total, 41B active
+  scale: 673B total, 41B active (6.1% active)
   context_tokens: '262,144'
   license_name: Apache License 2.0
   license_url: https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512/blob/main/README.md
   decoder_type: Sparse MoE
   attention: MLA
+  layer_mix: '61 MLA'
+  kv_cache_per_token_bf16: '68.6 KiB'
   highlight: Near-clone of DeepSeek V3 with larger experts, fewer routed experts, and multimodal support.
+  aa_intelligence_index: '22.8'
+  aai_profile: 'General 27.8 · Scientific 19.1 · Coding 22.7 · Agents 21.7'
+  aa_url: https://artificialanalysis.ai/models/mistral-large-3
   config:
     repo: mistralai/Mistral-Large-3-675B-Instruct-2512
     label: params.json
@@ -401,7 +569,12 @@ Mistral Small 3.1 24B:
   license_url: https://mistral.ai/news/mistral-small-3-1
   decoder_type: Dense
   attention: Standard GQA
+  layer_mix: '40 GQA'
+  kv_cache_per_token_bf16: '160 KiB'
   highlight: Latency-focused design with a smaller KV cache and fewer layers than Gemma 3 27B.
+  aa_intelligence_index: '14.5'
+  aai_profile: 'General 21.9 · Scientific 13.8 · Coding 13.9 · Agents 8.4'
+  aa_url: https://artificialanalysis.ai/models/mistral-small-3-1
   config:
     repo: mistralai/Mistral-Small-3.1-24B-Base-2503
     label: config.json
@@ -412,13 +585,18 @@ Mistral Small 4:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/mistral-small-4.webp"
   date: '2026-03-16'
   summary: Multimodal Mistral Small refresh that jumps from the older dense 24B stack to an MLA-based sparse MoE design.
-  scale: 119B total, 6.63B active
+  scale: 119B total, 6.63B active (5.6% active)
   context_tokens: '256,000'
   license_name: Apache License 2.0
   license_url: https://mistral.ai/news/mistral-small-4
   decoder_type: Sparse MoE
   attention: MLA
+  layer_mix: '36 MLA'
+  kv_cache_per_token_bf16: '22.5 KiB'
   highlight: Uses 128 experts with 4 routed plus 1 shared expert active per token while unifying instruct, reasoning, and vision.
+  aa_intelligence_index: '26.9'
+  aai_profile: 'General 37.1 · Scientific 24.1 · Coding 24.3 · Agents 22.4'
+  aa_url: https://artificialanalysis.ai/models/mistral-small-4
   config:
     repo: mistralai/Mistral-Small-4-119B-2603
     label: config.json
@@ -436,7 +614,12 @@ Nanbeige 4.1 3B:
   license_url: https://huggingface.co/Nanbeige/Nanbeige4.1-3B/blob/main/README.md
   decoder_type: Dense
   attention: GQA
+  layer_mix: '32 GQA'
+  kv_cache_per_token_bf16: '64 KiB'
   highlight: Llama-like stack without tying input embeddings to the output layer.
+  aa_intelligence_index: '16.1'
+  aai_profile: 'General 22.0 · Scientific 26.2 · Coding 8.9 · Agents 7.2'
+  aa_url: https://artificialanalysis.ai/models/nanbeige4-1-3b
   config:
     repo: Nanbeige/Nanbeige4.1-3B
     label: config.json
@@ -447,13 +630,18 @@ Nemotron 3 Nano 30B-A3B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/nemotron-3-nano-30b-a3b.webp"
   date: '2025-12-04'
   summary: NVIDIA's Nano model is the most extreme transformer-state-space hybrid in the gallery.
-  scale: 30B total, 3B active
+  scale: 30B total, 3B active (10% active)
   context_tokens: '1,000,000'
   license_name: NVIDIA Nemotron Open Model License
   license_url: https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-nemotron-open-model-license/
   decoder_type: Hybrid MoE
   attention: Mostly Mamba-2 with a few GQA layers
+  layer_mix: '6 GQA + 23 Mamba-2 + 23 MoE'
+  kv_cache_per_token_bf16: '6 KiB'
   highlight: Interleaves Mamba-2 and MoE blocks, using attention only sparingly.
+  aa_intelligence_index: '13.2'
+  aai_profile: 'General 16.2 · Scientific 12.3 · Coding 15.8 · Agents 8.5'
+  aa_url: https://artificialanalysis.ai/models/nvidia-nemotron-3-nano-30b-a3b
   config:
     repo: nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16
     label: config.json
@@ -470,7 +658,12 @@ Nemotron 3 Nano 4B:
   license_url: https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-nemotron-open-model-license/
   decoder_type: Dense hybrid
   attention: GQA with only 4 attention layers
+  layer_mix: '4 GQA + 21 Mamba-2 + 17 FFN'
+  kv_cache_per_token_bf16: '16 KiB'
   highlight: Uses a 42-layer stack with 21 Mamba-2 blocks, 17 ReLU² FFNs, and just 4 GQA layers.
+  aa_intelligence_index: '14.7'
+  aai_profile: 'General 23.7 · Scientific 15.2 · Coding 10.0 · Agents 9.8'
+  aa_url: https://artificialanalysis.ai/models/nvidia-nemotron-3-nano-4b
   config:
     repo: nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16
     label: config.json
@@ -482,13 +675,18 @@ Nemotron 3 Super 120B-A12B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/nemotron-3-super-120b-a12b.webp"
   date: '2026-03-11'
   summary: The Super variant scales up Nano and adds both latent experts and native speculative decoding support.
-  scale: 120B total, 12B active
+  scale: 120B total, 12B active (10% active)
   context_tokens: '1,000,000'
   license_name: NVIDIA Nemotron Open Model License
   license_url: https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-nemotron-open-model-license/
   decoder_type: Hybrid MoE
   attention: Mostly Mamba-2 with a few GQA layers
+  layer_mix: '8 GQA + 40 Mamba-2 + 40 MoE'
+  kv_cache_per_token_bf16: '8 KiB'
   highlight: Adds latent-space MoE and shared-weight MTP for fast inference.
+  aa_intelligence_index: '36.0'
+  aai_profile: 'General 42.1 · Scientific 30.4 · Coding 31.2 · Agents 40.2'
+  aa_url: https://artificialanalysis.ai/models/nvidia-nemotron-3-super-120b-a12b
   config:
     repo: nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16
     label: config.json
@@ -505,11 +703,16 @@ OLMo 2 7B:
   license_url: https://huggingface.co/allenai/OLMo-2-1124-7B-Instruct/blob/main/README.md
   decoder_type: Dense
   attention: MHA with QK-Norm
+  layer_mix: '32 MHA'
+  kv_cache_per_token_bf16: '512 KiB'
   highlight: Uses inside-residual post-norm instead of the usual pre-norm layout.
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
   config:
-    repo: allenai/OLMo-2-1124-13B
+    repo: allenai/OLMo-2-1124-7B-Instruct
     label: config.json
-    url: https://huggingface.co/allenai/OLMo-2-1124-13B/blob/main/config.json
+    url: https://huggingface.co/allenai/OLMo-2-1124-7B-Instruct/blob/main/config.json
   tech_report:
     url: https://arxiv.org/pdf/2501.00656
 OLMo 3 32B:
@@ -522,7 +725,12 @@ OLMo 3 32B:
   license_url: https://huggingface.co/allenai/Olmo-3-1125-32B/blob/main/README.md
   decoder_type: Dense
   attention: GQA with QK-Norm and 3:1 sliding-window/global attention
+  layer_mix: '48 sliding-window + 16 global'
+  kv_cache_per_token_bf16: '256 KiB'
   highlight: Keeps post-norm while scaling width and applying YaRN only on global layers.
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
   config:
     repo: allenai/Olmo-3-32B-Think
     label: config.json
@@ -541,11 +749,16 @@ OLMo 3 7B:
   license_url: https://huggingface.co/allenai/Olmo-3-1025-7B/blob/main/README.md
   decoder_type: Dense
   attention: MHA with QK-Norm and 3:1 sliding-window/global attention
+  layer_mix: '24 sliding-window + 8 global'
+  kv_cache_per_token_bf16: '512 KiB'
   highlight: Retains post-norm, keeps MHA, and applies YaRN only on global layers.
+  aa_intelligence_index: '8.2'
+  aai_profile: 'General 12.1 · Scientific 12.9 · Coding 3.4 · Agents 4.2'
+  aa_url: https://artificialanalysis.ai/models/olmo-3-7b-instruct
   config:
-    repo: allenai/Olmo-3-32B-Think
+    repo: allenai/Olmo-3-1025-7B
     label: config.json
-    url: https://huggingface.co/allenai/Olmo-3-32B-Think/blob/main/config.json
+    url: https://huggingface.co/allenai/Olmo-3-1025-7B/blob/main/config.json
   tech_report:
     url: https://arxiv.org/pdf/2512.13961
   from_scratch:
@@ -560,7 +773,15 @@ Phi-4:
   license_url: https://huggingface.co/microsoft/phi-4/blob/main/LICENSE
   decoder_type: Dense
   attention: GQA with RoPE
+  layer_mix: '40 GQA'
+  kv_cache_per_token_bf16: '200 KiB'
   highlight: Classic pre-norm RMSNorm stack with GQA, 40 heads, 10 KV heads, and a 100,352-token vocabulary.
+  related_concepts:
+    - rmsnorm
+    - gqa
+  aa_intelligence_index: '10.4'
+  aai_profile: 'General 14.0 · Scientific 16.4 · Coding 11.2 · Agents 0.0'
+  aa_url: https://artificialanalysis.ai/models/phi-4
   config:
     repo: microsoft/phi-4
     label: config.json
@@ -577,18 +798,32 @@ Qwen3 0.6B:
   license_url: https://huggingface.co/Qwen/Qwen3-0.6B-Base/blob/main/LICENSE
   decoder_type: Dense
   attention: GQA
+  layer_mix: '28 GQA'
+  kv_cache_per_token_bf16: '112 KiB'
   highlight: Deeper than Llama 3.2 1B and unusually practical for local experiments and teaching.
+  aa_intelligence_index: '5.7'
+  aai_profile: 'General 8.1 · Scientific 8.4 · Coding 1.4 · Agents 4.9'
+  aa_url: https://artificialanalysis.ai/models/qwen3-0.6b-instruct
+  config:
+    repo: Qwen/Qwen3-0.6B-Base
+    label: config.json
+    url: https://huggingface.co/Qwen/Qwen3-0.6B-Base/blob/main/config.json
 Qwen3 235B-A22B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/qwen3-235b-a22b.webp"
   date: '2025-04-28'
   summary: Large sparse Qwen variant that stays very close to DeepSeek V3 while removing the shared expert.
-  scale: 235B total, 22B active
+  scale: 235B total, 22B active (9.4% active)
   context_tokens: '128,000'
   license_name: Apache License 2.0
   license_url: https://huggingface.co/Qwen/Qwen3-235B-A22B/blob/main/LICENSE
   decoder_type: Sparse MoE
   attention: GQA with QK-Norm
+  layer_mix: '94 GQA'
+  kv_cache_per_token_bf16: '188 KiB'
   highlight: High-capacity MoE design optimized for serving efficiency without a shared expert.
+  aa_intelligence_index: '17.0'
+  aai_profile: 'General 16.9 · Scientific 17.7 · Coding 14.0 · Agents 19.2'
+  aa_url: https://artificialanalysis.ai/models/qwen3-235b-a22b-instruct
   config:
     repo: Qwen/Qwen3-235B-A22B
     label: config.json
@@ -600,13 +835,22 @@ Qwen3 235B-A22B:
 Qwen3 30B-A3B:
   date: '2025-04-28'
   summary: Small sparse Qwen3 model that sits close to GPT-OSS in active size but uses a deeper stack.
-  scale: 30B total, 3B active
+  scale: 30B total, 3B active (10% active)
   context_tokens: '128,000'
   license_name: Apache License 2.0
   license_url: https://huggingface.co/Qwen/Qwen3-30B-A3B/blob/main/LICENSE
   decoder_type: Sparse MoE
   attention: GQA
+  layer_mix: '48 GQA'
+  kv_cache_per_token_bf16: '96 KiB'
   highlight: Deeper, narrower MoE alternative to GPT-OSS without a shared expert.
+  aa_intelligence_index: '12.5'
+  aai_profile: 'General 14.2 · Scientific 15.2 · Coding 13.3 · Agents 7.4'
+  aa_url: https://artificialanalysis.ai/models/qwen3-30b-a3b-instruct
+  config:
+    repo: Qwen/Qwen3-30B-A3B
+    label: config.json
+    url: https://huggingface.co/Qwen/Qwen3-30B-A3B/blob/main/config.json
 Qwen3 32B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/qwen3-32b.webp"
   date: '2025-04-28'
@@ -617,11 +861,16 @@ Qwen3 32B:
   license_url: https://huggingface.co/Qwen/Qwen3-32B/blob/main/LICENSE
   decoder_type: Dense
   attention: GQA with QK-Norm
+  layer_mix: '64 GQA'
+  kv_cache_per_token_bf16: '256 KiB'
   highlight: Reference dense Qwen stack with QK-Norm and 8 KV heads.
+  aa_intelligence_index: '14.5'
+  aai_profile: 'N/A'
+  aa_url: https://artificialanalysis.ai/models/qwen3-32b-instruct
   config:
-    repo: Qwen/Qwen3-235B-A22B
+    repo: Qwen/Qwen3-32B
     label: config.json
-    url: https://huggingface.co/Qwen/Qwen3-235B-A22B/blob/main/config.json
+    url: https://huggingface.co/Qwen/Qwen3-32B/blob/main/config.json
   tech_report:
     url: https://arxiv.org/pdf/2505.09388
   from_scratch:
@@ -636,11 +885,16 @@ Qwen3 4B:
   license_url: https://huggingface.co/Qwen/Qwen3-4B/blob/main/LICENSE
   decoder_type: Dense
   attention: GQA with QK-Norm
+  layer_mix: '36 GQA'
+  kv_cache_per_token_bf16: '144 KiB'
   highlight: Compact Qwen3 dense stack with QK-Norm and a 151k vocabulary.
+  aa_intelligence_index: '12.5'
+  aai_profile: 'N/A'
+  aa_url: https://artificialanalysis.ai/models/qwen3-4b-instruct
   config:
-    repo: Qwen/Qwen3-235B-A22B
+    repo: Qwen/Qwen3-4B
     label: config.json
-    url: https://huggingface.co/Qwen/Qwen3-235B-A22B/blob/main/config.json
+    url: https://huggingface.co/Qwen/Qwen3-4B/blob/main/config.json
   tech_report:
     url: https://arxiv.org/pdf/2505.09388
   from_scratch:
@@ -655,11 +909,16 @@ Qwen3 8B:
   license_url: https://huggingface.co/Qwen/Qwen3-8B/blob/main/LICENSE
   decoder_type: Dense
   attention: GQA with QK-Norm
+  layer_mix: '36 GQA'
+  kv_cache_per_token_bf16: '144 KiB'
   highlight: Reference Qwen3 dense stack with QK-Norm and 8 KV heads.
+  aa_intelligence_index: '10.6'
+  aai_profile: 'General 11.2 · Scientific 12.7 · Coding 7.1 · Agents 11.6'
+  aa_url: https://artificialanalysis.ai/models/qwen3-8b-instruct
   config:
-    repo: Qwen/Qwen3-235B-A22B
+    repo: Qwen/Qwen3-8B
     label: config.json
-    url: https://huggingface.co/Qwen/Qwen3-235B-A22B/blob/main/config.json
+    url: https://huggingface.co/Qwen/Qwen3-8B/blob/main/config.json
   tech_report:
     url: https://arxiv.org/pdf/2505.09388
   from_scratch:
@@ -668,13 +927,18 @@ Qwen3 Next 80B-A3B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/qwen3-next-80b-a3b.webp"
   date: '2025-09-09'
   summary: Efficiency-focused Qwen refresh that swaps standard attention for a DeltaNet-attention hybrid.
-  scale: 80B total, 3B active
+  scale: 80B total, 3B active (3.8% active)
   context_tokens: '262,144'
   license_name: Apache License 2.0
   license_url: https://huggingface.co/Qwen/Qwen3-Next-80B-A3B-Instruct/blob/main/LICENSE
   decoder_type: Sparse hybrid
   attention: 3:1 Gated DeltaNet and Gated Attention
+  layer_mix: '12 gated attention + 36 DeltaNet'
+  kv_cache_per_token_bf16: '24 KiB'
   highlight: Adds many more experts, a shared expert, and a native 262k context.
+  aa_intelligence_index: '20.1'
+  aai_profile: 'General 28.9 · Scientific 22.1 · Coding 15.3 · Agents 14.2'
+  aa_url: https://artificialanalysis.ai/models/qwen3-next-80b-a3b-instruct
   config:
     repo: Qwen/Qwen3-Next-80B-A3B-Instruct
     label: config.json
@@ -683,13 +947,18 @@ Qwen3 Coder Flash 30B-A3B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/qwen3-coder-flash-30b-a3b-mixture-of-experts.webp"
   date: '2025-07-31'
   summary: Coding-tuned Qwen model that keeps a straightforward grouped-query MoE stack instead of the newer hybrid-attention variants.
-  scale: 30B total, 3.3B active
+  scale: 30B total, 3.3B active (11% active)
   context_tokens: '256,000'
   license_name: Apache License 2.0
   license_url: https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct/blob/main/LICENSE
   decoder_type: Sparse MoE
   attention: GQA
+  layer_mix: '48 GQA'
+  kv_cache_per_token_bf16: '96 KiB'
   highlight: Uses 128 experts with 8 active per token and a native 256k context window for coding workloads.
+  aa_intelligence_index: '20.0'
+  aai_profile: 'General 24.6 · Scientific 14.9 · Coding 19.4 · Agents 21.1'
+  aa_url: https://artificialanalysis.ai/models/qwen3-coder-30b-a3b-instruct
   config:
     repo: Qwen/Qwen3-Coder-30B-A3B-Instruct
     label: config.json
@@ -700,13 +969,18 @@ Qwen3.5 397B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/qwen3-5-397b.webp"
   date: '2026-02-16'
   summary: Mainline Qwen refresh that brings the Next-style hybrid attention into the flagship series.
-  scale: 397B total, 17B active
+  scale: 397B total, 17B active (4.3% active)
   context_tokens: '262,144'
   license_name: Apache License 2.0
   license_url: https://huggingface.co/Qwen/Qwen3.5-397B-A17B/blob/main/LICENSE
   decoder_type: Sparse hybrid
   attention: 3:1 Gated DeltaNet and Gated Attention
+  layer_mix: '15 gated attention + 45 DeltaNet'
+  kv_cache_per_token_bf16: '30 KiB'
   highlight: Turns the former Qwen3-Next side branch into the new core design with 512 experts and 17B active parameters.
+  aa_intelligence_index: '40.1'
+  aai_profile: 'General 38.5 · Scientific 31.1 · Coding 37.4 · Agents 53.3'
+  aa_url: https://artificialanalysis.ai/models/qwen3-5-397b-a17b-non-reasoning
   config:
     repo: Qwen/Qwen3.5-397B-A17B
     label: config.json
@@ -717,13 +991,18 @@ Sarvam 105B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/sarvam-105b.webp"
   date: '2026-03-03'
   summary: Larger Sarvam variant keeps the sparse MoE layout but switches from GQA to MLA.
-  scale: 105B total
+  scale: 105B total, 10.3B active (9.8% active)
   context_tokens: '131,072'
   license_name: Apache License 2.0
   license_url: https://huggingface.co/sarvamai/sarvam-105b/blob/main/README.md
   decoder_type: Sparse MoE
   attention: MLA with KV LayerNorm and NoPE + RoPE
+  layer_mix: '32 MLA'
+  kv_cache_per_token_bf16: '36 KiB'
   highlight: Large vocabulary and strong Indic language support carried into the larger MLA-based sparse MoE variant.
+  aa_intelligence_index: '18.2'
+  aai_profile: 'General 14.6 · Scientific 23.5 · Coding 9.8 · Agents 24.7'
+  aa_url: https://artificialanalysis.ai/models/sarvam-105b
   config:
     repo: sarvamai/sarvam-105b
     label: config.json
@@ -734,13 +1013,18 @@ Sarvam 30B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/sarvam-30b.webp"
   date: '2026-03-03'
   summary: Reasoning-oriented Indian-language sparse MoE that keeps GQA at the smaller size.
-  scale: 30B total
+  scale: 30B total, 2.4B active (8% active)
   context_tokens: '131,072'
   license_name: Apache License 2.0
   license_url: https://huggingface.co/sarvamai/sarvam-30b/blob/main/README.md
   decoder_type: Sparse MoE
   attention: GQA with QK-Norm
+  layer_mix: '19 GQA'
+  kv_cache_per_token_bf16: '19 KiB'
   highlight: Large vocabulary and strong Indic language support paired with a reasoning-focused sparse MoE design.
+  aa_intelligence_index: '12.3'
+  aai_profile: 'General 10.5 · Scientific 19.4 · Coding 7.9 · Agents 11.5'
+  aa_url: https://artificialanalysis.ai/models/sarvam-30b
   config:
     repo: sarvamai/sarvam-30b
     label: config.json
@@ -757,7 +1041,12 @@ SmolLM3 3B:
   license_url: https://huggingface.co/HuggingFaceTB/SmolLM3-3B-Base/blob/main/README.md
   decoder_type: Dense
   attention: GQA with periodic NoPE layers
+  layer_mix: '36 GQA'
+  kv_cache_per_token_bf16: '72 KiB'
   highlight: Every fourth layer omits RoPE to test a NoPE-style cadence.
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
   config:
     repo: HuggingFaceTB/SmolLM3-3B-Base
     label: config.json
@@ -768,13 +1057,18 @@ Step 3.5 Flash 196B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/step-3-5-flash-196b.webp"
   date: '2026-02-01'
   summary: Throughput-oriented MoE model that stays competitive with much larger DeepSeek-style systems.
-  scale: 196B total, 11B active
+  scale: 196B total, 11B active (5.6% active)
   context_tokens: '262,144'
   license_name: Apache License 2.0
   license_url: https://huggingface.co/stepfun-ai/Step-3.5-Flash/blob/main/README.md
   decoder_type: Sparse MoE
   attention: GQA with 3:1 sliding-window attention
+  layer_mix: '36 sliding-window + 12 global'
+  kv_cache_per_token_bf16: '192 KiB'
   highlight: Uses MTP-3 during both training and inference for unusually high throughput.
+  aa_intelligence_index: '37.8'
+  aai_profile: 'General 36.6 · Scientific 30.9 · Coding 31.6 · Agents 52.0'
+  aa_url: https://artificialanalysis.ai/models/step-3-5-flash
   config:
     repo: stepfun-ai/Step-3.5-Flash
     label: config.json
@@ -791,7 +1085,12 @@ Tiny Aya 3.35B:
   license_url: https://huggingface.co/CohereLabs/tiny-aya-base/blob/main/README.md
   decoder_type: Dense
   attention: GQA with 3:1 sliding-window attention
+  layer_mix: '27 sliding-window + 9 global'
+  kv_cache_per_token_bf16: '72 KiB'
   highlight: Runs attention and the MLP in parallel while mixing RoPE with NoPE.
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
   config:
     repo: CohereLabs/tiny-aya-base
     label: config.json
@@ -804,13 +1103,18 @@ Xiaomi MiMo-V2-Flash 309B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/xiaomi-mimo-v2-flash-309b.webp"
   date: '2025-12-16'
   summary: Large MoE model that pushes sliding-window attention harder than most contemporaries.
-  scale: 309B total, 15B active
+  scale: 309B total, 15B active (4.9% active)
   context_tokens: '262,144'
   license_name: MIT License
   license_url: https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash/blob/main/README.md
   decoder_type: Sparse MoE
   attention: 5:1 sliding-window/global attention
+  layer_mix: '40 sliding-window + 8 global'
+  kv_cache_per_token_bf16: '144 KiB'
   highlight: Uses an unusually small 128-token local window plus multi-token prediction.
+  aa_intelligence_index: '30.4'
+  aai_profile: 'General 27.8 · Scientific 20.4 · Coding 25.8 · Agents 47.3'
+  aa_url: https://artificialanalysis.ai/models/mimo-v2-flash
   config:
     repo: XiaomiMiMo/MiMo-V2-Flash
     label: config.json
@@ -827,7 +1131,12 @@ xLSTM 7B:
   license_url: https://huggingface.co/NX-AI/xLSTM-7b/blob/main/LICENSE
   decoder_type: Recurrent
   attention: No self-attention; mLSTM recurrent layers with matrix memory
+  layer_mix: '32 mLSTM'
+  kv_cache_per_token_bf16: '0 B'
   highlight: Stateful recurrent architecture aimed at fast long-context inference without an explicit context window.
+  aa_intelligence_index: 'N/A'
+  aai_profile: 'N/A'
+  aa_url:
   config:
     repo: NX-AI/xLSTM-7b
     label: config.json
