@@ -2,7 +2,7 @@
 Arcee AI Trinity Large 400B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/arcee-ai-trinity-large-400b.webp"
   date: '2026-01-27'
-  summary: Arcee's flagship blends several efficiency tricks into a DeepSeek-like coarse MoE design.
+  summary: Arcee's flagship blends several efficiency tricks into a DeepSeek-like coarse MoE design; the AA score shown here refers to the Trinity Large Thinking checkpoint.
   scale: 400B total, 13B active (3.3% active)
   context_tokens: '512,000'
   license_name: Apache License 2.0
@@ -12,9 +12,9 @@ Arcee AI Trinity Large 400B:
   layer_mix: '45 sliding-window + 15 global'
   kv_cache_per_token_bf16: '240 KiB'
   highlight: Combines QK-Norm, RoPE+NoPE, sandwich norm, and a coarse-grained MoE.
-  aa_intelligence_index: '15.0'
-  aai_profile: 'N/A'
-  aa_url:
+  aa_intelligence_index: '31.9'
+  aai_profile: 'General 31.4 · Scientific 26.4 · Coding 27.2 · Agents 42.6'
+  aa_url: https://artificialanalysis.ai/models/trinity-large-thinking
   config:
     repo: arcee-ai/Trinity-Large-Base
     label: config.json
@@ -258,9 +258,9 @@ GPT-2 XL 1.5B:
   layer_mix: '48 MHA'
   kv_cache_per_token_bf16: '300 KiB'
   highlight: Classic GPT-2 recipe with dropout, GELU, LayerNorm, and full multi-head attention.
-  aa_intelligence_index: '32.3'
-  aai_profile: 'General 31.1 · Scientific 24.8 · Coding 33.9 · Agents 39.4'
-  aa_url: https://artificialanalysis.ai/models/gemma-4-31b-non-reasoning
+  aa_intelligence_index: '6.0'
+  aai_profile: 'N/A'
+  aa_url: https://artificialanalysis.ai/models/llama-3-instruct-8b
   config:
     repo: openai-community/gpt2-xl
     label: config.json
@@ -777,6 +777,8 @@ Llama 3 8B:
   from_scratch:
     url: https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/07_gpt_to_llama
 Llama 3.2 3B:
+  image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/llama-3-2-3b.webp"
+  date: '2024-09-25'
   summary: Small Llama baseline used to show how closely Nanbeige follows the mainstream compact decoder recipe.
   scale: 3B parameters
   context_tokens: '128,000'
@@ -1126,6 +1128,7 @@ Phi-4:
   tech_report:
     url: https://arxiv.org/pdf/2412.08905
 Qwen3 0.6B:
+  image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/qwen3-0-6b.webp"
   date: '2025-04-28'
   summary: Tiny current-generation Qwen model that trades width for more depth and a low memory footprint.
   scale: 0.6B parameters
@@ -1169,6 +1172,7 @@ Qwen3 235B-A22B:
   from_scratch:
     url: https://github.com/rasbt/LLMs-from-scratch/tree/main/ch05/11_qwen3
 Qwen3 30B-A3B:
+  image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/qwen3-30b-a3b.webp"
   date: '2025-04-28'
   summary: Small sparse Qwen3 model that sits close to GPT-OSS in active size but uses a deeper stack.
   scale: 30B total, 3B active (10% active)
@@ -1526,20 +1530,44 @@ Xiaomi MiMo-V2.5 310B:
   hide_article_link: true
   tech_report:
     url: https://mimo.xiaomi.com/mimo-v2-5
+Xiaomi MiMo-V2.5-Pro 1.02T:
+  image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/xiaomi-mimo25-pro.webp"
+  date: '2026-04-22'
+  summary: Trillion-parameter sparse MoE model for long-horizon agentic and software-engineering tasks.
+  scale: 1.02T total, 42B active (4.1% active)
+  context_tokens: '1,048,576'
+  vocab_size: '152,576 (~152k)'
+  license_name: MIT License
+  license_url: https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro/blob/main/README.md
+  decoder_type: Sparse MoE
+  attention: GQA with 6:1 sliding-window/global attention
+  layer_mix: '60 sliding-window + 10 global'
+  kv_cache_per_token_bf16: '350 KiB'
+  highlight: Scales the MiMo-V2.5 Pro stack to 70 layers, 384 routed experts, top-8 routing, and a 1M-token context window.
+  aa_intelligence_index: '53.8'
+  aai_profile: 'General 62.8 · Scientific 39.5 · Coding 45.5 · Agents 67.4'
+  aa_url: https://artificialanalysis.ai/models/mimo-v2-5-pro
+  config:
+    repo: XiaomiMiMo/MiMo-V2.5-Pro
+    label: config.json
+    url: https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro/blob/main/config.json
+  hide_article_link: true
+  tech_report:
+    url: https://mimo.xiaomi.com/mimo-v2-5
 ZAYA1-8B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/zaya1-8b.webp"
   date: '2026-05-06'
-  summary: Zyphra's compact reasoning MoE alternates CCA attention and routed expert layers to keep fewer than 1B parameters active per token.
-  scale: 8.4B total, 760M active (9% active)
+  summary: Zyphra's compact reasoning MoE pairs CCA/GQA attention updates with top-1 routed expert FFN updates to keep fewer than 1B parameters active per token.
+  scale: 8.4B total, 760M active/token (9% active)
   context_tokens: '131,072'
   vocab_size: '262,272'
   license_name: Apache License 2.0
   license_url: https://huggingface.co/Zyphra/ZAYA1-8B/blob/main/README.md
   decoder_type: Sparse MoE
   attention: CCA with 4:1 GQA, RoPE, and Q/K L2 norm
-  layer_mix: '40 CCA attention + 40 MoE'
+  layer_mix: '40 CCA/GQA attention + 40 top-1 MoE FFN entries'
   kv_cache_per_token_bf16: '40 KiB'
-  highlight: Alternates CCA attention and MoE layer entries; the router selects 1 of 16 SwiGLU experts, leaving roughly 760M parameters active per token.
+  highlight: "Key detail is CCA/GQA attention, which performs attention in a compressed latent space while keeping a 4:1 GQA layout. Sidenote: the config lists 80 alternating layer entries, equivalent to 40 CCA/GQA attention updates paired with 40 top-1 MoE FFN updates."
   related_concepts:
     - gqa
     - moe
