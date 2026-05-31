@@ -270,9 +270,9 @@ GPT-2 XL 1.5B:
   layer_mix: '48 MHA'
   kv_cache_per_token_bf16: '300 KiB'
   highlight: Classic GPT-2 recipe with dropout, GELU, LayerNorm, and full multi-head attention.
-  aa_intelligence_index: '6.0'
+  aa_intelligence_index: 'N/A'
   aai_profile: 'N/A'
-  aa_url: https://artificialanalysis.ai/models/llama-3-instruct-8b
+  aa_url:
   config:
     repo: openai-community/gpt2-xl
     label: config.json
@@ -686,7 +686,7 @@ Laguna XS.2:
     label: config.json
     url: https://huggingface.co/poolside/Laguna-XS.2/blob/main/config.json
   tech_report:
-    url: https://poolside.ai/blog/laguna-a-deeper-dive
+    url: https://poolside.ai/assets/laguna/laguna-m1-xs2-technical-report.pdf
 Ling 2.5 1T:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/ling-2-5-1t.webp"
   date: '2026-02-15'
@@ -860,6 +860,8 @@ MiniMax M2 230B:
     repo: MiniMaxAI/MiniMax-M2
     label: config.json
     url: https://huggingface.co/MiniMaxAI/MiniMax-M2/blob/main/config.json
+  tech_report:
+    url: https://arxiv.org/abs/2605.26494
 MiniMax M2.5 230B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/minimax-m2-5-230b.webp"
   date: '2026-02-12'
@@ -880,6 +882,8 @@ MiniMax M2.5 230B:
     repo: MiniMaxAI/MiniMax-M2.5
     label: config.json
     url: https://huggingface.co/MiniMaxAI/MiniMax-M2.5/blob/main/config.json
+  tech_report:
+    url: https://arxiv.org/abs/2605.26494
 MiniMax M2.7 230B:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/minimax-m2-7-230b.webp"
   date: '2026-03-18'
@@ -902,7 +906,7 @@ MiniMax M2.7 230B:
     url: https://huggingface.co/MiniMaxAI/MiniMax-M2.7/blob/main/config.json
   hide_article_link: true
   tech_report:
-    url: https://www.minimax.io/news/minimax-m27-en
+    url: https://arxiv.org/abs/2605.26494
 Mistral Large 3:
   image: "https://sebastianraschka.com/llm-architecture-gallery/images/architectures/mistral-3-large-673-billion.webp"
   date: '2025-12-02'
